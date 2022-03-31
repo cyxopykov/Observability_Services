@@ -1,5 +1,5 @@
 # Observability Services
-```shell
+```javascript
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 VAGRANTFILE_API_VERSION = "2"
