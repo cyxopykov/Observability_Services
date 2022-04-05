@@ -16,3 +16,19 @@ sudo sed 's|# HostnameItem=system.hostname|HostnameItem=system.hostname|g' -i /e
 sudo sed 's|# HostnameItem=system.hostname|HostnameItem=system.hostname|g' -i /etc/zabbix/zabbix_agentd.conf
 
 sudo systemctl restart zabbix-agent
+
+
+
+
+#Deployng TOMCAT
+sudo yum install -y yum-utils
+sudo yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce docker-ce-cli containerd.io -y
+sudo systemctl start docker
+sudo docker build -t mytomcat:1 -f .
+sudo mkdir -p tomcat/logs
+sudo docker run -d -p 80:8080 -v /home/vagrant/tomcat/logs:/usr/local/tomcat/logs mytomcat:1
+
+
+
+
